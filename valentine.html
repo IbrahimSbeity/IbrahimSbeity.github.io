@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question Page</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .question {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+<div class="container text-center">
+    <img id="gif" src="uwu.gif" class="gif-image" alt="GIF Image" width="250">
+    <div class="question" id="question">Will you be my Valentine?!</div>
+  
+  
+  <button id="yes" class="btn btn-success" onclick="handleButtonClick(true)">Yes</button>
+  <button id="no" class="btn btn-danger mr-2" onclick="handleButtonClick(false)">No</button>
+</div>
+
+<script>
+var statements = [
+  "Are you sure?",
+  "Really sure?",
+  "Just think about it",
+  "I'll be sad",
+  "Very sad",
+  "Very very sad",
+  "Very very very sad",
+];
+var statementIndex = 0;
+
+function handleButtonClick(liked) {
+  var questionDiv = document.getElementById("question");
+  var noButton = document.getElementById("no");
+  var yesButton = document.getElementById("yes");
+  var gifImg = document.getElementById("gif");
+
+  if (liked) {
+    questionDiv.textContent = "Yaaaayy!";
+    noButton.style.display = "none";
+    yesButton.style.display = "none";
+    gifImg.src = "milk-and-mocha.gif"
+
+  } else {
+    if (statementIndex >= statements.length) {
+      statementIndex = 0; // Reset index if all statements have been shown
+    }
+    noButton.textContent = statements[statementIndex];
+    statementIndex++;
+
+    // Change text of 'No' button
+    // noButton.textContent = "Next Statement";
+
+    // Decrease size of 'No' button
+    var currentNoSize = window.getComputedStyle(noButton).fontSize;
+    var newNoSize = parseInt(currentNoSize) - 0;
+    noButton.style.fontSize = newNoSize + "px";
+
+    // Increase size of 'Yes' button
+    var currentYesSize = window.getComputedStyle(yesButton).fontSize;
+    var newYesSize = parseInt(currentYesSize) + 40;
+    yesButton.style.fontSize = newYesSize + "px";
+  }
+}
+</script>
+</body>
+</html>
