@@ -53,15 +53,6 @@ function handleButtonClick(liked) {
     noButton.textContent = statements[statementIndex];
     statementIndex++;
 
-    // Change text of 'No' button
-    // noButton.textContent = "Next Statement";
-
-    // Decrease size of 'No' button
-    var currentNoSize = window.getComputedStyle(noButton).fontSize;
-    var newNoSize = parseInt(currentNoSize) - 0;
-    noButton.style.fontSize = newNoSize + "px";
-
-    // Increase size of 'Yes' button
     var currentYesSize = window.getComputedStyle(yesButton).fontSize;
     var newYesSize = parseInt(currentYesSize) + 40;
     yesButton.style.fontSize = newYesSize + "px";
